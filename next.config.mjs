@@ -2,7 +2,8 @@
 const nextConfig = {
     images:{
         domains:[
-            "fakestoreapi.com"
+            "img.freepik.com",
+            "m.media-amazon.com"
         ]
     }
 };

@@ -1,4 +1,5 @@
-
+import Footer from "./componentes/Footer"
+import Header from "./componentes/Header"
 
 export const metadata = {
   title: "Meu Shop.com",
@@ -8,7 +9,13 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <Header/>
+        <br/>
+        {children}
+        <br/>
+        <Footer/>
+      </body>
     </html>
   );
 }

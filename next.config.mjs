@@ -3,7 +3,10 @@ const nextConfig = {
     images:{
         domains:[
             "img.freepik.com",
-            "m.media-amazon.com"
+            "m.media-amazon.com",
+            "pluspng.com",
+            "i1.wp.com",
+            "cdn.onlinewebfonts.com"
         ]
     }
 };

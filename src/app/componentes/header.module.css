@@ -5,3 +5,39 @@
     justify-content: center;
    
 }
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color:rgb(34, 63, 255);
+    padding: 1rem;
+}
+
+.navbar_brand {
+    color: #fff;
+    font-size: 45px;
+    font-weight: bold;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+}
+
+.navbar_menu {
+    list-style: none;
+    display: flex;
+}
+
+.navbar_item {
+    margin-left: 1.5rem;
+}
+
+.navbar_item a {
+    color: #fff;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    transition: background-color 0.3s;
+}
+
+.navbar_item a:hover {
+    background-color: #555;
+    border-radius: 5px;
+}

@@ -1,7 +1,7 @@
 import Image from "next/image"
 import styles from "./main.module.css"
 export default async function Main(){
-    const response = await fetch("https://api.escuelajs.co/api/v1/products");
+    const response = await fetch("https://fakestoreapi.com/products");
     const data = await response.json();
     
       return (
@@ -9,14 +9,18 @@ export default async function Main(){
           {data.map((products)=> 
           
                 <div className={styles.card} key={products.id}>
-                  <h2>Título: {products.title}</h2>
-                  <p>Preço: R${products.price}</p>
-                  <p>{products.description}</p>
-                  <p>{products.category.name}</p>
-                  
-                  <Image width={250} height={250} src="https://m.media-amazon.com/images/I/61+-qLbs+ZL._AC_SX522_.jpg"/>
+                  <center><h2>{products.title}</h2></center>
+                  <p>R${products.price}</p>
+                  <center><p>{products.description}</p></center>
+                  <center><p>{products.category.name}</p></center>
+                  <Image 
+              width= {200}
+              height={200}
+              src={products.image}/>
+              <p>{products.rating.count}</p>
                 </div>
-          )}
+         
+         )}
         </main>
       );
 }

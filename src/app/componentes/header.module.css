@@ -1,43 +1,35 @@
-.cabecalho{
-    display: flex;
-    height: 100px;
-    background-color: rgb(34, 63, 255);
-    justify-content: center;
-   
-}
+
 
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color:rgb(34, 63, 255);
+    background-color:rgb(134, 150, 253);
     padding: 1rem;
 }
 
 .navbar_brand {
-    color: #fff;
+    display: flex;
+    color: #000000;
     font-size: 45px;
     font-weight: bold;
     font-family: 'Comic Sans MS', cursive, sans-serif;
 }
 
 .navbar_menu {
-    list-style: none;
     display: flex;
+    justify-content: space-around;
 }
 
 .navbar_item {
     margin-left: 1.5rem;
 }
 
-.navbar_item a {
-    color: #fff;
-    text-decoration: none;
-    padding: 0.5rem 1rem;
-    transition: background-color 0.3s;
+.img{
+    height: 60px;
+    width: 60px;
 }
 
-.navbar_item a:hover {
-    background-color: #555;
-    border-radius: 5px;
+.a{
+    text-decoration: none;
 }

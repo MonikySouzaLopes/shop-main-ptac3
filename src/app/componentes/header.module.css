@@ -10,10 +10,12 @@
 
 .navbar_brand {
     display: flex;
+    justify-content: space-between;
     color: #000000;
     font-size: 45px;
     font-weight: bold;
     font-family: 'Comic Sans MS', cursive, sans-serif;
+    align-items: center;
 }
 
 .navbar_menu {
@@ -32,4 +34,9 @@
 
 .a{
     text-decoration: none;
+}
+
+.frase{
+    font-size: 20px;
+    margin:16px;
 }

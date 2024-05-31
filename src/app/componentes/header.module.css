@@ -21,6 +21,16 @@
 .navbar_menu {
     display: flex;
     justify-content: space-around;
+    align-items: center;
+}
+
+.button{
+    background-color: rgb(92, 92, 243);
+    height: 40px;
+    width: 120px;
+    margin-left: 20px;
+    border-radius: 40%;
+    border: 0;
 }
 
 .navbar_item {

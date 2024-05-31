@@ -8,7 +8,7 @@ export default function Header(){
         </div>
         <div className={styles.navbar_menu}>
             <p className={styles.navbar_item}><a href="#home"><img src="https://img.icons8.com/ios/50/shopping-cart--v1.png"></img></a></p>
-            <p className={styles.navbar_item}><a className={styles.a} href="#about">Novo produto</a></p>
+            <button type="button" className={styles.button}>Novo Produto</button>
         </div>
     </nav>
     );

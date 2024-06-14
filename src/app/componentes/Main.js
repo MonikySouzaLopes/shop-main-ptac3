@@ -1,5 +1,6 @@
 'use client'
 import { useEffect, useState } from "react";
+import Spinner from "./Spinner";
 import Image from "next/image"
 import styles from "./main.module.css"
 
@@ -44,7 +45,9 @@ export default function Main(){
       setListProduct(newList);
     }
 
-
+    if(listProduct[0] == null){
+      return <center><Spinner/></center>
+    }
 
       return (
         <>
@@ -60,7 +63,7 @@ export default function Main(){
           
                 <div className={styles.card} key={products.id}>
                   <center><h3>{products.title}</h3></center>
-                  <p><strong>R${products.price}</strong></p>
+                  <p><strong>R$ {products.price}</strong></p>
                   <center><p><strong>Descrição: </strong>{products.description}</p></center>
                   <center><p><strong>Categoria: </strong>{products.category}</p></center>
                   <p><strong>Contagem: </strong>{products.rating.count}</p>

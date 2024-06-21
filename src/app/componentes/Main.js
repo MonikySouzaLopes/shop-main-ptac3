@@ -7,6 +7,9 @@ import styles from "./main.module.css"
 export default function Main(){
 
     const [listProduct, setListProduct] = useState([]);
+    const [listComplete, setListComplete] = useState([]);
+    const [search, setSearch] = useState("");
+
 
     useEffect( ()=> {
       const getProduct = async() =>{
@@ -14,6 +17,7 @@ export default function Main(){
         const data = await response.json();
 
         setListProduct(data);
+        setListComplete(data);
       };
       getProduct();
     }, []);
@@ -45,6 +49,18 @@ export default function Main(){
       setListProduct(newList);
     }
 
+    const searchText = (text) =>{
+      setSearch(text);
+      if(text.trim() == ""){
+          setListProduct(listComplete);
+          return
+      }
+      const newList = listProduct.filter((product) => 
+        product.title.toUpperCase().trim().includes(search.toUpperCase().trim()));
+       setListProduct(newList);
+    }
+    
+
     if(listProduct[0] == null){
       return <center><Spinner/></center>
     }
@@ -52,6 +68,7 @@ export default function Main(){
       return (
         <>
         <div>
+          <input type="text" value={search} placeholder="Pesquise o produto" onChange={(event) => searchText( event.target.value)}/>
           <button onClick={orderAz}>AZ</button>
           <button onClick={orderZa}>ZA</button>
           <button onClick={orderPrice}>Menor preço para o maior</button>

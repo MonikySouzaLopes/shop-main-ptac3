@@ -1,5 +1,6 @@
 'use client'
 import { useEffect, useState } from "react";
+import Link from 'next/link'
 import Spinner from "./Spinner";
 import Image from "next/image"
 import styles from "./main.module.css"
@@ -96,7 +97,7 @@ export default function Main(){
               width= {150}
               height={150}
               src={products.image}/>
-              
+              <Link href={"/product/" + products.id}>Ver mais!</Link>
                 </div>
          )}
         </main>

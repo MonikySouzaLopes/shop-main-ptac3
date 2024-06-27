@@ -97,6 +97,7 @@ export default function Main(){
               width= {150}
               height={150}
               src={products.image}/>
+              <br/>
               <Link href={"/product/" + products.id}>Ver mais!</Link>
                 </div>
          )}

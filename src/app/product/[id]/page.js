@@ -15,9 +15,6 @@ export default async function Product({params}){
               src={data.image}/>
 
         </div>
-       
-
-
         
     );
 }

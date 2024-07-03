@@ -87,10 +87,17 @@ export default function Main(){
     //função para ordenar os preços dos produtos do menor pro maior 
     const orderPrice = () =>{
       let newList = [...listProduct].sort( (a, b) =>
+        /*a e b são dois objetos de produto sendo comparados.
+      - a.price e b.price são os preços dos produtos.
+      -> A expressão a.price - b.price subtrai o preço de b do preço de a:
+     --Se a.price for menor que b.price, o resultado será negativo, e a será colocado antes de b na ordem.
+     --Se a.price for igual a b.price, o resultado será zero, e a posição relativa de a e b não mudará.
+     --Se a.price for maior que b.price, o resultado será positivo, e a será colocado depois de b na ordem. */
           a.price - b.price
       );
       setListProduct(newList);
     }
+    //função para ordenar os preços dos produtos do maior pro menor 
     const orderPriceReverse = () =>{
       let newList = [...listProduct].sort( (a, b) =>
           a.price - b.price
@@ -98,26 +105,36 @@ export default function Main(){
       newList = newList.reverse();
       setListProduct(newList);
     }
-
+    //função de pesquisa 
     const searchText = (text) =>{
       setSearch(text);
+      //verifica se o texto de pesquisa é vazio ou contém apenas espaços em branco
       if(text.trim() == ""){
+        //se estiver vazio, a função define a lista de produdos para a lista completa, afim de camcelar qualquer filtragem
           setListProduct(listComplete);
           return
       }
+      //filtragem
+      //a função filter cria um novo arraycom todos os elementos que teste implementado pela função
       const newList = listProduct.filter((product) => 
+        /*Converte o título do produto (product.title) para letras maiúsculas e remove espaços em branco no início e no fim, usando toUpperCase().trim().
+        Converte o texto de pesquisa (text) para letras maiúsculas e remove espaços em branco no início e no fim, usando toUpperCase().trim().
+        Verifica se o título do produto inclui o texto de pesquisa usando includes. */
         product.title.toUpperCase().trim().includes(search.toUpperCase().trim()));
        setListProduct(newList);
     }
 
+    /*condição que irá verificar se a variável de estado que definimos, 
+    está com o estado de true, se estiver, será retornado o componente ErrorGetData*/
     if(errorFetch == true){
       return <ErrorGetData/>
     }
-
+    /*condição que irá verificar se a lista completa com todos os 
+    produtos enquanto estiver vazia, irá retornar o componente Spinner */
     if(listComplete[0] == null){
       return <center><Spinner/></center>
     }
-
+//exibição dos produtos na tela
       return (
         <>
         <div>
@@ -127,8 +144,10 @@ export default function Main(){
           <button onClick={orderPrice}>Menor preço para o maior</button>
           <button onClick={orderPriceReverse}>Maior preço para o menor</button>
         </div>
-
+     
         <main className={styles.main}>
+         
+
           {listProduct.map((products)=> 
           
                 <div className={styles.card} key={products.id}>
@@ -142,6 +161,7 @@ export default function Main(){
               height={150}
               src={products.image}/>
               <br/>
+              
               <Link href={"/product/" + products.id}>Ver mais!</Link>
                 </div>
          )}
